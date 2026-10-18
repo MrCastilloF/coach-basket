@@ -1132,7 +1132,7 @@ def build_arquitectura(doc, page_later=False):
          "sesiones/semana — Incluye: Plan de sesiones · Videoanálisis grupal · Informe de "
          "progreso.\n"
          "02 ASESORÍA 1:1 — Para jugadoras que quieren dar el salto — Plan individual · 3 "
-         "sesiones/semana · Seguimiento WhatsApp — Incluye: Diagnóstico 360° · Plan 12 "
+         "sesiones/semana · Seguimiento telefónico — Incluye: Diagnóstico 360° · Plan 12 "
          "semanas · Videoanálisis quincenal.\n"
          "03 DIRECCIÓN TÉCNICA — Para instituciones y federaciones — Temporada completa · "
          "Cuerpo técnico — Incluye: Modelo de juego · Formación de entrenadores · Informes de "
@@ -1161,12 +1161,12 @@ def build_arquitectura(doc, page_later=False):
          "Eyebrow: «AGENDA»\nH2: «HABLEMOS DE TU PRÓXIMA TEMPORADA.»\n"
          "Sub: «Cuéntame dónde estás y a dónde quieres llegar. Te respondo en menos de 24 "
          "horas con un diagnóstico inicial sin costo.»\n"
-         "Formulario: Nombre · Email · WhatsApp · Perfil (Jugadora / Club o academia / "
+         "Formulario: Nombre · Email · Teléfono · Perfil (Jugadora / Club o academia / "
          "Institución / Padre o madre) · Objetivo (textarea)\n"
          "Botón: «AGENDAR MI DIAGNÓSTICO →»\n"
          "Micro: «Sin costo ni compromiso · Respuesta en menos de 24 h · Datos tratados de "
          "forma confidencial.»\n"
-         "Tarjeta: «AGENDA DIRECTA» — WhatsApp directo, correo, base en Bogotá. «PRÓXIMA "
+         "Tarjeta: «AGENDA DIRECTA» — llamada directa, correo, base en Bogotá. «PRÓXIMA "
          "DISPONIBILIDAD: ABRIL — 3 CUPOS»\n"
          "FAQ: modalidad online · edades · nivel mínimo · política de cancelación",
          "AGENDAR MI\nDIAGNÓSTICO →"),
@@ -1803,7 +1803,7 @@ def build_cro(doc):
                    ["2", "Promesa + prueba + CTA sin scroll", "Hero a 100 vh con tarjeta de 9 "
                                                               "títulos y micro-prueba",
                     "Test en 390 × 844 y 1280 × 720"],
-                   ["3", "Formulario de 4 campos + mensaje", "Nombre, Email, WhatsApp, Perfil y "
+                   ["3", "Formulario de 4 campos + mensaje", "Nombre, Email, Teléfono, Perfil y "
                                                              "Objetivo", "Conteo de inputs del "
                                                                          "flujo"],
                    ["4", "El botón dice el resultado", "«AGENDAR MI DIAGNÓSTICO →», nunca "
@@ -1812,7 +1812,7 @@ def build_cro(doc):
                                                       "palmarés", "Revisión editorial"],
                    ["6", "Reducir ansiedad", "«Sin costo», «sin compromiso», «24 h», «cupos "
                                               "limitados» junto al CTA", "Micro bajo el botón"],
-                   ["7", "WhatsApp flotante permanente", "Canal de menor fricción en LATAM; "
+                   ["7", "Llamada directa flotante", "Canal de menor fricción en LATAM; "
                                                          "aparece tras 30 % de scroll",
                     "No tapa el CTA ni el formulario"],
                    ["8", "Anclas exactas y sticky header", "Scroll suave con offset de 64 px; "
@@ -1826,7 +1826,7 @@ def build_cro(doc):
                [
                    ["Nombre", "Texto", "Sí", "Mínimo 2 caracteres", "¿Cómo te llamas?"],
                    ["Email", "Email", "Sí", "Formato + dominio válido", "Te escribo aquí"],
-                   ["WhatsApp", "Teléfono", "Sí", "+57 · 10 dígitos", "Solo para coordinar"],
+                   ["Teléfono / WhatsApp", "Teléfono", "Sí", "+57 · 10 dígitos", "Solo para coordinar"],
                    ["Perfil", "Select", "Sí", "4 opciones cerradas", "Jugadora / Club o "
                                                                       "academia / Institución / "
                                                                       "Padre o madre"],
@@ -1844,14 +1844,14 @@ def build_cro(doc):
                     "GA4"],
                    ["form_start", "Primer foco en el formulario", "campo_origen", "GA4"],
                    ["form_submit", "Envío exitoso", "perfil, objetivo_len", "GA4 + CRM"],
-                   ["whatsapp_click", "Clic en WhatsApp", "origen, seccion", "GA4"],
+                   ["phone_click", "Clic en «Llamar»", "origen, seccion", "GA4"],
                    ["scroll_75", "75 % de la página recorrida", "seccion_actual", "GA4"],
                    ["faq_open", "Apertura de una pregunta", "pregunta", "GA4"],
                ], body_size=7.5, body_line=9.2)
 
     spacer(doc, 14)
     stats_row(doc, [("≥ 4 %", "Conversión de formulario"),
-                    ("≥ 9 %", "Clic a WhatsApp"),
+                    ("≥ 9 %", "Clic a llamada"),
                     ("< 24 h", "Respuesta al lead"),
                     ("< 1,8 s", "LCP en 4G")])
 
@@ -2009,7 +2009,7 @@ def build_cierre(doc):
                           ["Fotografías y video", "8–12 piezas reales, sin editar", "Semana 1"],
                           ["Testimonios y palmarés", "Tres citas y certificados a la vista",
                            "Semana 1"],
-                          ["Accesos y dominio", "Hosting, dominio, Instagram y WhatsApp",
+                          ["Accesos y dominio", "Hosting, dominio, Instagram y teléfono",
                            "Semana 2"],
                       ], body_size=7.8, body_line=9.8)
     keep_table_together(treq)
@@ -2091,9 +2091,9 @@ def build_cierre(doc):
     p.paragraph_format.space_after = Pt(0)
     p.paragraph_format.line_spacing = Pt(14)
     p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
-    add_run(p, "hola@gloriacelis.co", font=INS, size=8.8, color=CREAM)
-    add_run(p, "      ·      +57 310 000 0000", font=IN, size=8.8, color=CREAM)
-    add_run(p, "      ·      @gloriacelis.coach", font=IN, size=8.8, color=MUTED)
+    add_run(p, "lorisisabel22@gmail.com", font=INS, size=8.8, color=CREAM)
+    add_run(p, "      ·      +57 298 5298", font=IN, size=8.8, color=CREAM)
+    # handle de Instagram pendiente de confirmar con la coach
 
     spacer(doc, 22)
     # cierre conceptual: la big idea otra vez, ahora como despedida
