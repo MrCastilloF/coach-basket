@@ -1,0 +1,7 @@
+﻿# Artefactos locales
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporales de QA
+preview/repo-check/
