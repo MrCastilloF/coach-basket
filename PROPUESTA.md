@@ -34,6 +34,7 @@ promesa concreta: *jugadoras que leen el juego antes de que ocurra*.
 | 05 | **Método 360** | Proceso medible en 4 fases + pizarra táctica isométrica |
 | 06 | **Programas** | Clínica grupal · Asesoría 1:1 · Dirección técnica |
 | 07 | **Galería** | Evidencia real (B/N → color al hover) |
+| 07b | **Archivo** | Las 95 fotos del equipo en una tira + galería completa con lightbox |
 | 08 | **Testimonios** | Prueba social cualitativa |
 | 09 | **Contacto** | Formulario de 4 campos + agenda directa + FAQ |
 | — | **Footer** | Cierre de marca, contacto y recordatorio de SKY |
@@ -110,18 +111,21 @@ nativos; se pausa automáticamente al salir del viewport y respeta `prefers-redu
 
 ## 4. Dirección de arte
 
-### 4.1 Paleta
+### 4.1 Paleta (tema claro de alto impacto)
 
 | Token | Hex | Rol | Proporción |
 |---|---|---|---|
-| Carbón 900 | `#0A0B0D` | Fondo / vestuario | 45 % |
-| Carbón 800 | `#111317` | Secciones alternas | 20 % |
-| Carbón 700 | `#1A1D22` | Tarjetas | 15 % |
-| Crema | `#F4F1E9` | Texto | 10 % |
-| Naranja balón | `#FF4D1F` | CTA, SKY, datos | 6 % |
-| Oro trofeo | `#E9B44C` | Logros y credenciales | 3 % |
+| Papel | `#FAF7F0` | Fondo principal | 45 % |
+| Blanco | `#FFFFFF` | Tarjetas y superficies | 20 % |
+| Azul cielo | `#D9E9F7` | Secciones alternas y footer | 20 % |
+| Tinta | `#0E1720` | Texto y titulares | 10 % |
+| Naranja balón | `#FF4D1F` | CTA, SKY, datos | 4 % |
+| Oro | `#A9711A` | Logros y credenciales | 1 % |
+| Acero | `#737D87` | Texto secundario | — |
 
-Regla: el naranja solo para acción y marca; el oro solo para logro. Nunca juntos en un componente.
+Base clara, tipografía oscura de gran tamaño y bloques de color cielo: el impacto viene del
+contraste tipográfico y del naranja, no del fondo negro. El naranja solo para acción y marca;
+el oro solo para logro. Nunca juntos en un componente.
 
 ### 4.2 Tipografía
 

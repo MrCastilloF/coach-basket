@@ -14,8 +14,9 @@ Sitio de una página para **Gloria Isabel Celis Suárez**, coach de baloncesto d
 - **Film de 25 s** montado con 11 fotos reales del equipo (Ken Burns + fundidos) y cama
   sonora original, en reproductor propio.
 - **Sección Team SKY**, palmarés con contadores, filosofía, método 360, programas, galería,
-  testimonios y agenda.
-- Diseño responsive, accesible y sin dependencias (HTML + CSS + JS vanilla).
+  **archivo con las 95 fotos** (tira + lightbox), testimonios y agenda.
+- **Tema claro de alto impacto** (papel, azul cielo y naranja), responsive, accesible y sin
+  dependencias (HTML + CSS + JS vanilla).
 
 ## Estructura
 

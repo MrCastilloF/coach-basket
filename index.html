@@ -600,6 +600,33 @@
     </div>
   </section>
 
+  <!-- ================= ARCHIVO ================= -->
+  <section class="section archivo" id="archivo" aria-labelledby="archivoTitle">
+    <span class="section__index"><span>08</span> — Archivo</span>
+    <div class="container">
+      <div class="section__head reveal">
+        <div>
+          <p class="eyebrow">Archivo</p>
+          <h2 class="h2" id="archivoTitle">95 momentos.<br>Una sola historia.</h2>
+        </div>
+        <p class="lead">
+          El archivo completo del equipo: celebraciones, viajes, entrenamientos y cancha.
+          Desliza la tira o abre la galería para verlas todas, una por una.
+        </p>
+      </div>
+
+      <div class="archivo__strip" id="archivoStrip" aria-label="Tira del archivo fotográfico"></div>
+
+      <div class="archivo__bar reveal">
+        <p><b>95 fotos</b> · Team SKY 2024–2026 · archivo real</p>
+        <button class="btn btn--primary" id="openArchive" type="button">
+          Abrir galería completa
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9.5 4.5 13 8l-3.5 3.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= TESTIMONIOS ================= -->
   <section class="section section--alt section--tight" id="testimonios" aria-labelledby="testimoniosTitle">
     <div class="container">
@@ -798,6 +825,25 @@
 <a class="wa" href="tel:+572985298" aria-label="Llamar al +57 298 5298">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 2.5c.5 0 1 .3 1.2.8l1.9 4.2c.2.5.1 1-.3 1.4L7.8 10a12.8 12.8 0 0 0 6.2 6.2l1.1-1.6c.4-.4.9-.5 1.4-.3l4.2 1.9c.5.2.8.7.8 1.2v2.4c0 1.1-.9 2-2 2A19.5 19.5 0 0 1 2.2 4.5c0-1.1.9-2 2-2h2.4Z"/></svg>
 </a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Archivo fotográfico Team SKY" aria-hidden="true">
+  <button class="lightbox__close" id="lbClose" type="button" aria-label="Cerrar galería">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img id="lbImg" src="" alt="">
+    <figcaption>
+      <span id="lbCaption">Team SKY · archivo</span>
+      <span id="lbCount">1 / 95</span>
+    </figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Foto siguiente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div>
 
 <div class="grain" aria-hidden="true"></div>
 <script src="assets/js/main.js"></script>

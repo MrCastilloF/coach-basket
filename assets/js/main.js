@@ -243,3 +243,85 @@
     }, { threshold: 0 }).observe(player);
   }
 })();
+/* ============================================================
+   Archivo fotográfico (95 fotos) + lightbox
+   ============================================================ */
+(function () {
+  'use strict';
+  var strip = document.getElementById('archivoStrip');
+  var lb = document.getElementById('lightbox');
+  if (!strip || !lb) return;
+
+  var N = 95;
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  var full = function (i) { return 'assets/img/archivo/f' + pad(i) + '.jpg'; };
+  var thumb = function (i) { return 'assets/img/archivo/t' + pad(i) + '.jpg'; };
+
+  var frag = document.createDocumentFragment();
+  for (var i = 1; i <= N; i++) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'archivo__item';
+    b.setAttribute('data-index', i);
+    b.setAttribute('aria-label', 'Abrir foto ' + i + ' de ' + N);
+    var img = document.createElement('img');
+    img.src = thumb(i);
+    img.alt = 'Team SKY · foto ' + i + ' de ' + N;
+    img.loading = 'lazy';
+    img.width = 360;
+    img.height = 450;
+    b.appendChild(img);
+    frag.appendChild(b);
+  }
+  strip.appendChild(frag);
+
+  var idx = 1;
+  var lastFocus = null;
+  var imgEl = document.getElementById('lbImg');
+  var countEl = document.getElementById('lbCount');
+  var capEl = document.getElementById('lbCaption');
+
+  function show(n) {
+    idx = ((n - 1 + N) % N) + 1;
+    imgEl.src = full(idx);
+    imgEl.alt = 'Team SKY · foto ' + idx + ' de ' + N;
+    countEl.textContent = idx + ' / ' + N;
+    capEl.textContent = 'Team SKY · archivo';
+    [idx % N + 1, (idx - 2 + N) % N + 1].forEach(function (p) {
+      var pre = new Image();
+      pre.src = full(p);
+    });
+  }
+
+  function open(n) {
+    lastFocus = document.activeElement;
+    show(n);
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  }
+
+  function close() {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  strip.addEventListener('click', function (e) {
+    var btn = e.target.closest('.archivo__item');
+    if (btn) open(parseInt(btn.getAttribute('data-index'), 10));
+  });
+  document.getElementById('openArchive').addEventListener('click', function () { open(1); });
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function () { show(idx - 1); });
+  document.getElementById('lbNext').addEventListener('click', function () { show(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(idx + 1);
+    if (e.key === 'ArrowLeft') show(idx - 1);
+  });
+})();
