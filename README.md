@@ -52,7 +52,7 @@ python -m http.server 8896
 | Duración | 25 s (loop) |
 | Peso | ≈ 6 MB (se descarga solo al pulsar play) |
 | Póster | `assets/video/sky-film-poster.jpg` |
-| Audio | Cama sonora original provisional |
+| Audio | «Rising Game» — Kevin MacLeod · CC BY 4.0 |
 
 Las fotos venían como capturas de Facebook (720 × 1600 con interfaz). Se aisló la foto real de
 cada captura, se recortó a 4:5 y se corrigió color antes del montaje. Si llega una pista

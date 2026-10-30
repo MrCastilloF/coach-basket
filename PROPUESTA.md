@@ -77,16 +77,19 @@ promesa concreta: *jugadoras que leen el juego antes de que ocurra*.
 
 ### 3.2 Dirección musical
 
-- **Género:** épico ascendente / cinematic sport.
-- **BPM:** 90–100. **Duración:** 25–28 s (mismo corte del film).
-- **Estructura sugerida:** pulso grave desde el plano 00 · percusión orgánica al 02 ·
-  cuerdas en crescendo del 05 al 09 · **drop al segundo 18** (plano del equipo SKY) ·
-  cierre en silencio con el último fotograma.
-- **Referencias de estilo:** himnos deportivos con percusión orgánica y cuerdas, sin voz.
-- **Licencia:** usar pista con licencia comercial (Artlist, Epidemic Sound, Musicbed) o
-  encargo original. **No** usar audio de redes sociales.
-- **Implementación:** el film ya viaja con una **cama sonora original** (pad + pulso) como
-  provisional; al recibir la pista licenciada se reemplaza el audio sin recomprimir el video.
+- **Pista actual:** «**Rising Game**» — Kevin MacLeod ([incompetech.com](https://incompetech.com)),
+  licencia **CC BY 4.0**. Corte desde 1:16 con fades de 0,8 s / 1,6 s y normalización a −15 LUFS.
+  Crédito obligatorio y visible en la página.
+- **Carácter:** rock deportivo ascendente, 112 BPM, percusión marcada y sintetizadores cálidos;
+  la energía crece durante todo el corte. Es la referencia “motivacional tipo Rocky” sin usar
+  material con copyright.
+- **Estructura del corte:** entrada en seco con las tarjetas, tema principal del 02 al 08,
+  clímax en el bloque de equipo SKY y cierre en fade con la tarjeta final.
+- **Si se quiere una versión más sinfónica** (metales y cuerdas, fanfarria heroica), la
+  alternativa es un encargo original o una pista con licencia comercial (Artlist, Epidemic Sound,
+  Musicbed). **No** usar el tema de *Rocky* ni audio de redes sociales: son obras protegidas.
+- **Implementación:** el video ya viaja con la pista montada; reemplazarla no requiere
+  recomprimir el video, solo volver a mezclar el audio (25 s).
 
 ### 3.3 Especificación técnica del video
 
@@ -95,7 +98,7 @@ promesa concreta: *jugadoras que leen el juego antes de que ocurra*.
 | Formato / relación | 4:5 vertical · **960 × 1200** |
 | Códec | H.264 (avc1) · yuv420p · 30 fps |
 | Duración | 25 s · loop |
-| Peso | 6,1 MB (`sky-film.mp4`) |
+| Peso | ≈ 6,2 MB (`sky-film.mp4`) |
 | Póster | `sky-film-poster.jpg` (fotograma 6,6 s) |
 | Antes / después | tarjetas de marca con la tipografía del sitio |
 | Reproducción | `preload="none"`, póster primero, carga al primer clic |
@@ -197,7 +200,7 @@ Regla: el naranja solo para acción y marca; el oro solo para logro. Nunca junto
 ## 8. Entregables
 
 1. `index.html` + `assets/` — landing completa y responsive.
-2. `assets/video/sky-film.mp4` — film 25 s con cama sonora provisional.
+2. `assets/video/sky-film.mp4` — film 25 s con música (Kevin MacLeod, CC BY 4.0).
 3. `assets/img/` — fotos recortadas y optimizadas desde la carpeta original.
 4. `PROPUESTA.md` — este documento.
 5. Repositorio publicado en GitHub Pages.

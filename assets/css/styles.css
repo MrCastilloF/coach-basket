@@ -868,4 +868,6 @@ button{cursor:pointer}
 }
 @media (max-width:720px){
   .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
-}
+}.film__credit{max-width:440px;font-size:10.5px;line-height:1.6;letter-spacing:.04em;color:#5F666E;margin-top:6px}
+.film__credit a{color:#8E959E;text-decoration:underline;text-underline-offset:2px}
+.film__credit a:hover{color:var(--gold)}
