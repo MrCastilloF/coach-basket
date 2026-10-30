@@ -720,3 +720,152 @@ button{cursor:pointer}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ============================================================
+   21. TEAM SKY — hero con film, reproductor y sección de equipo
+   ============================================================ */
+.hero__visual{max-width:430px}
+.hero__media{
+  position:relative;display:block;width:100%;height:clamp(430px,62svh,620px);
+  overflow:hidden;background:var(--steel);border:1px solid rgba(233,180,76,.34);
+}
+.hero__media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,11,13,.35) 0%,rgba(10,11,13,0) 26%,rgba(10,11,13,.2) 62%,rgba(10,11,13,.92) 100%);
+}
+.hero__media img{
+  width:100%;height:100%;object-fit:cover;object-position:50% 32%;
+  filter:contrast(1.06) saturate(.92) brightness(.92);
+  transition:transform .8s var(--ease),filter .6s var(--ease);
+}
+.hero__media:hover img{transform:scale(1.04);filter:contrast(1.06) saturate(1) brightness(.98)}
+.hero__play{
+  position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+  width:78px;height:78px;border-radius:50%;display:grid;place-items:center;
+  background:var(--flame);color:#0A0B0D;z-index:3;
+  box-shadow:0 24px 50px -18px rgba(255,77,31,.8);
+  transition:transform .4s var(--ease),background .4s;
+}
+.hero__play svg{width:30px;height:30px;margin-left:3px}
+.hero__media:hover .hero__play{transform:translate(-50%,-50%) scale(1.08);background:var(--flame-soft)}
+.hero__film-tag{
+  position:absolute;left:22px;top:20px;z-index:3;
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream);background:rgba(10,11,13,.62);border:1px solid var(--line);
+  padding:9px 12px;backdrop-filter:blur(8px);
+}
+.hero__badge--sky{
+  left:-56px;bottom:96px;display:flex;align-items:center;gap:14px;min-width:0;
+  border-color:rgba(255,77,31,.35);
+}
+.hero__badge--sky strong{font-family:var(--display);font-weight:700;font-size:19px;display:block;letter-spacing:.04em}
+.hero__badge--sky em{font-style:normal;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.sky-mark{
+  display:inline-grid;place-items:center;flex:none;
+  background:var(--flame);color:var(--ink);
+  font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.1em;
+  padding:10px 12px;line-height:1;border-radius:2px;
+}
+.sky-mark--sm{font-size:11px;padding:7px 9px;letter-spacing:.12em}
+
+/* ---------- Film ---------- */
+.film{position:relative;overflow:hidden}
+.film::before{
+  content:"";position:absolute;right:-10%;top:-15%;width:720px;height:720px;
+  background:radial-gradient(circle,rgba(255,77,31,.10),transparent 62%);pointer-events:none;
+}
+.film__grid{
+  display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(32px,5vw,72px);align-items:center;
+}
+.film__specs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 24px}
+.film__specs li{background:var(--carbon);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.film__specs span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.film__specs b{font-weight:500;font-size:13.5px;letter-spacing:.01em;color:var(--cream)}
+.film__note{
+  border-left:2px solid var(--gold);padding:14px 18px;margin-bottom:28px;
+  font-size:13px;line-height:1.65;color:var(--body);background:rgba(233,180,76,.05);
+}
+.film__note b{color:var(--gold);font-weight:600;letter-spacing:.02em}
+.film__player{display:flex;flex-direction:column;align-items:center;gap:14px}
+.player{
+  position:relative;width:100%;max-width:440px;aspect-ratio:4/5;
+  background:#000;border:1px solid rgba(233,180,76,.34);
+  box-shadow:0 50px 100px -40px rgba(0,0,0,.95);
+  overflow:hidden;
+}
+.player__video{width:100%;height:100%;object-fit:cover;display:block}
+.player__cover{
+  position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;cursor:pointer;
+  background:linear-gradient(180deg,rgba(10,11,13,.15),rgba(10,11,13,.72));
+  border:0;transition:opacity .4s var(--ease),visibility .4s;
+}
+.player.is-playing .player__cover{opacity:0;visibility:hidden;pointer-events:none}
+.player__cover-icon{
+  width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
+  background:var(--flame);color:var(--ink);box-shadow:0 26px 50px -18px rgba(255,77,31,.85);
+  transition:transform .4s var(--ease);
+}
+.player__cover-icon svg{width:32px;height:32px;margin-left:4px}
+.player__cover:hover .player__cover-icon{transform:scale(1.08)}
+.player__cover-label{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)}
+.player__bar{
+  position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;gap:12px;
+  padding:16px 14px 12px;background:linear-gradient(180deg,rgba(10,11,13,0),rgba(10,11,13,.92));
+}
+.player__bar[hidden]{display:none}
+.player__btn{width:34px;height:34px;display:grid;place-items:center;color:var(--cream);flex:none;transition:color .3s}
+.player__btn:hover{color:var(--flame)}
+.player__btn svg{width:18px;height:18px}
+.player__progress{position:relative;flex:1;height:3px;background:rgba(244,241,233,.24);cursor:pointer;border-radius:2px}
+.player__progress-fill{display:block;height:100%;width:0;background:var(--flame);border-radius:2px;transition:width .15s linear}
+.player__progress:focus-visible{outline:2px solid var(--flame);outline-offset:6px}
+.player__time{font-size:11px;letter-spacing:.1em;color:var(--cream);font-variant-numeric:tabular-nums;flex:none}
+.film__caption{display:flex;justify-content:space-between;width:100%;max-width:440px;
+  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- Equipo SKY ---------- */
+.sky__figure{position:relative;margin:0 0 clamp(40px,5vw,64px);border:1px solid var(--line);overflow:hidden;background:var(--steel)}
+.sky__figure img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 42%;
+  filter:grayscale(1) contrast(1.05) brightness(.95);transition:filter .7s var(--ease),transform .9s var(--ease)}
+.sky__figure:hover img{filter:grayscale(0) contrast(1.03) brightness(1);transform:scale(1.02)}
+.sky__figure figcaption{
+  position:absolute;left:22px;bottom:18px;display:flex;align-items:center;gap:14px;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);
+}
+.sky__pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.sky__pillar{background:var(--ink);padding:clamp(24px,2.6vw,34px);transition:background .4s}
+.sky__pillar:hover{background:var(--carbon)}
+.sky__pillar h3{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,1.7vw,1.5rem);text-transform:uppercase;letter-spacing:.02em;margin:14px 0 10px}
+.sky__pillar p{font-size:13.5px;line-height:1.7;color:var(--body);max-width:34ch}
+.sky .quote{margin-top:clamp(40px,5vw,64px)}
+
+@media (max-width:1024px){
+  .hero__badge--sky{display:none}
+  .film__grid{grid-template-columns:1fr}
+  .film__player{order:-1}
+  .player{max-width:400px}
+  .sky__pillars{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .hero__media{height:78vw;min-height:330px}
+  .hero__play{width:64px;height:64px}
+  .hero__play svg{width:24px;height:24px}
+  .film__specs{grid-template-columns:1fr}
+  .player{max-width:100%}
+}
+/* ---------- Galería: tira de 4 piezas 4:5 ---------- */
+.gallery{grid-template-columns:repeat(4,1fr);grid-auto-rows:auto}
+.gallery__item{aspect-ratio:4/5}
+.gallery__item--tall,.gallery__item--wide{grid-row:auto;grid-column:auto}
+.gallery__item:nth-child(1) img{object-position:50% 40%}
+.gallery__item:nth-child(2) img{object-position:50% 42%}
+.gallery__item:nth-child(3) img{object-position:50% 32%}
+.gallery__item:nth-child(4) img{object-position:50% 18%}
+@media (max-width:1024px){
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+}
+@media (max-width:720px){
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+}

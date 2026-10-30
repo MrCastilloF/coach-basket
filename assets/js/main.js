@@ -158,3 +158,88 @@
     }, { passive: true });
   }
 })();
+
+/* ============================================================
+   Reproductor del film SKY (controles propios, sin dependencias)
+   ============================================================ */
+(function () {
+  'use strict';
+  var player = document.getElementById('player');
+  if (!player) return;
+
+  var video = document.getElementById('skyFilm');
+  var cover = document.getElementById('playFilm');
+  var bar = player.querySelector('.player__bar');
+  var progress = document.getElementById('progress');
+  var fill = document.getElementById('progressFill');
+  var timeLabel = document.getElementById('timeLabel');
+  var togglePlay = document.getElementById('togglePlay');
+  var toggleMute = document.getElementById('toggleMute');
+  var iconPlay = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  var iconMuted = document.getElementById('iconMuted');
+  var iconSound = document.getElementById('iconSound');
+
+  function fmt(s) {
+    s = Math.max(0, Math.floor(s || 0));
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  }
+
+  function setPlaying(on) {
+    player.classList.toggle('is-playing', on);
+    iconPlay.hidden = on;
+    iconPause.hidden = !on;
+    togglePlay.setAttribute('aria-label', on ? 'Pausar' : 'Reproducir');
+  }
+
+  cover.addEventListener('click', function () {
+    bar.hidden = false;
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { bar.hidden = false; });
+  });
+
+  video.addEventListener('play', function () { setPlaying(true); });
+  video.addEventListener('pause', function () { setPlaying(false); });
+
+  video.addEventListener('timeupdate', function () {
+    var d = video.duration || 25;
+    var pct = Math.min(100, (video.currentTime / d) * 100);
+    fill.style.width = pct + '%';
+    progress.setAttribute('aria-valuenow', Math.round(pct));
+    timeLabel.textContent = fmt(video.currentTime);
+  });
+
+  togglePlay.addEventListener('click', function () {
+    if (video.paused) video.play(); else video.pause();
+  });
+
+  function seek(e) {
+    var r = progress.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width;
+    x = Math.min(1, Math.max(0, x));
+    var d = video.duration || 25;
+    video.currentTime = x * d;
+  }
+  progress.addEventListener('click', seek);
+  progress.addEventListener('keydown', function (e) {
+    var d = video.duration || 25;
+    if (e.key === 'ArrowRight') { video.currentTime = Math.min(d, video.currentTime + 2); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { video.currentTime = Math.max(0, video.currentTime - 2); e.preventDefault(); }
+  });
+
+  toggleMute.addEventListener('click', function () {
+    video.muted = !video.muted;
+    iconMuted.hidden = !video.muted;
+    iconSound.hidden = video.muted;
+    toggleMute.setAttribute('aria-label', video.muted ? 'Activar sonido' : 'Silenciar');
+  });
+
+  // pausa el film si sale del viewport
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting && !video.paused) video.pause();
+      });
+    }, { threshold: 0 }).observe(player);
+  }
+})();
